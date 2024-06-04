@@ -1,0 +1,19 @@
+{
+    "Numéro de devis": "2024-05-001",
+    "Nom du client": "Exemple Client",
+    "Nom du demandeur": "John Doe",
+    "Adresse": "123 Rue Exemple",
+    "Code Postal": "75001",
+    "Ville": "Paris",
+    "Date du devis": "28/05/2024",
+    "Nature de l'intervention": "Installation de systèmes informatiques",
+    "Tableau": [
+        ["Description de l'intervention", "U", "Qté", "Prix HT", "Total HT", "TVA", "Total TVA", "Total TTC"],
+        ["Consultation technique", "H", "5", "100.00", "500.00", "20%", "100.00", "600.00"],
+        ["Configuration système", "U", "10", "50.00", "500.00", "20%", "100.00", "600.00"]
+    ],
+    "Montant HT": "1000.00",
+    "Montant TVA": "200.00",
+    "Total dû TTC": "1200.00",
+    "Notes": "Merci pour votre confiance."
+}
