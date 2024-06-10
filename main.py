@@ -12,7 +12,7 @@ class Application(tk.Tk):
         self.title("LuziCompta v2.0")
         
         self.iconbitmap("LUZITECHLOGO.ico")
-        self.state('zoomed')
+        self.geometry('600x550')  # Définir la taille initiale de la fenêtre
         self.configure(bg='white')
 
         self.logo_image = Image.open("LUZITECHLOGO.PNG")

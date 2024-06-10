@@ -1,0 +1,46 @@
+{
+    "Num\u00e9ro de devis": "DE2024-06-032",
+    "Nom du client": "IDEECO",
+    "Nom du demandeur": "RAUL BRAS",
+    "Adresse": "44bis Rue Georges Bannery",
+    "Code Postal": "45290",
+    "Ville": "NOGENT SUR VERNISSON",
+    "Date du devis": "09/06/2024",
+    "Nature de l'intervention": "Iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+    "Tableau": [
+        [
+            "Aaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "U",
+            "158",
+            "2.56",
+            "404.48",
+            "20%",
+            "80.90",
+            "485.38"
+        ],
+        [
+            "Bbbbbbbbbbbbbbbbbbbbbbbb",
+            "U",
+            "1",
+            "136",
+            "136.00",
+            "20%",
+            "27.20",
+            "163.20"
+        ],
+        [
+            "",
+            "U",
+            "",
+            "",
+            "",
+            "20%",
+            "",
+            ""
+        ]
+    ],
+    "Montant HT": "540.48",
+    "Montant TVA": "108.10",
+    "Total d\u00fb TTC": "648.58",
+    "Notes": "Ccccccccccccccc"
+}

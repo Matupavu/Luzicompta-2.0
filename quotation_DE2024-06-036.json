@@ -1,0 +1,46 @@
+{
+    "Num\u00e9ro de devis": "DE2024-06-036",
+    "Nom du client": "HEYER ET MARTIN",
+    "Nom du demandeur": "THIERRY CHAFFAL",
+    "Adresse": "197 Rue Des Fourches ",
+    "Code Postal": "45500",
+    "Ville": "GIEN",
+    "Date du devis": "10/06/2024",
+    "Nature de l'intervention": "Azrtyuioooo",
+    "Tableau": [
+        [
+            "Mis \u00e0 jour pour s'assurer que les mots dans les cases de signature sont en haut de leur case respective",
+            "U",
+            "2",
+            "58",
+            "116.00",
+            "20%",
+            "23.20",
+            "139.20"
+        ],
+        [
+            "Yhnbvcde",
+            "U",
+            "1",
+            "547",
+            "547.00",
+            "20%",
+            "109.40",
+            "656.40"
+        ],
+        [
+            "",
+            "U",
+            "",
+            "",
+            "",
+            "20%",
+            "",
+            ""
+        ]
+    ],
+    "Montant HT": "663.00",
+    "Montant TVA": "132.60",
+    "Total d\u00fb TTC": "795.60",
+    "Notes": "Azerty"
+}

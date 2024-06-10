@@ -1,0 +1,56 @@
+{
+    "Num\u00e9ro de devis": "DE2024-06-033",
+    "Nom du client": "ADB CONDITIONNEMENT",
+    "Nom du demandeur": "UNTEL",
+    "Adresse": "Rue Denis Papin",
+    "Code Postal": "45500",
+    "Ville": "GIEN",
+    "Date du devis": "09/06/2024",
+    "Nature de l'intervention": "Bbbbbbbbbbbbb",
+    "Tableau": [
+        [
+            "Cccccccccccccccc",
+            "U",
+            "56",
+            "12",
+            "672.00",
+            "20%",
+            "134.40",
+            "806.40"
+        ],
+        [
+            "Ddddddddddddddd",
+            "U",
+            "2",
+            "58",
+            "116.00",
+            "20%",
+            "23.20",
+            "139.20"
+        ],
+        [
+            "Vvvvvvvvvvvvvvvvvv",
+            "U",
+            "1",
+            "258",
+            "258.00",
+            "20%",
+            "51.60",
+            "309.60"
+        ],
+        [
+            "",
+            "U",
+            "",
+            "",
+            "",
+            "20%",
+            "",
+            ""
+        ]
+    ],
+    "Montant HT": "1046.00",
+    "Montant TVA": "209.20",
+    "Total d\u00fb TTC": "1255.20",
+    "Notes": "Rien"
+}

@@ -27,6 +27,13 @@ def create_devis_table():
 def insert_devis(data):
     with sqlite3.connect('clients.db') as conn:
         cursor = conn.cursor()
+        # Vérifier si le numéro de devis existe déjà
+        cursor.execute('''
+            SELECT COUNT(*) FROM devis WHERE devis_number = ?
+        ''', (data["Numéro de devis"],))
+        if cursor.fetchone()[0] > 0:
+            raise sqlite3.IntegrityError("Le numéro de devis existe déjà.")
+        
         cursor.execute('''
             INSERT INTO devis (devis_number, client_name, requester_name, address, postal_code, city, date, intervention, amount_ht, amount_tva, amount_ttc, notes)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

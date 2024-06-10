@@ -1,26 +1,51 @@
-# invoice.py est un fichier qui contient le code pour transformer un devis en facture. Il contient une fonction create_invoice qui est appelée dans le fichier main.py pour transformer un devis en facture.
+# invoice.py
 
+import os
+import json
 from tkinter import filedialog, messagebox
 from fpdf import FPDF
 from utils import load_quotation
 
+class PDF(FPDF):
+    def header(self):
+        self.set_font('Arial', 'B', 12)
+        self.cell(0, 10, 'Title', 0, 1, 'C')
+
+    def footer(self):
+        self.set_y(-15)
+        self.set_font('Arial', 'I', 8)
+        self.cell(0, 10, f'Page {self.page_no()}', 0, 0, 'C')
+
 def create_invoice_from_data(data=None):
     if data is None:
-        data = load_quotation()
+        data = load_quotation()  # Charger les données si elles ne sont pas fournies
     
     if not data:
         messagebox.showerror("Erreur", "Aucun devis trouvé pour générer la facture.")
         return
 
-    default_filename = f"Facture_{data['Numéro de devis']}.pdf"
+    invoices_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'invoices')
+    if not os.path.exists(invoices_dir):
+        os.makedirs(invoices_dir)
+
+    json_filename = os.path.join(invoices_dir, f"{data['Numéro de facture']}.json")
+    pdf_filename = f"{data['Numéro de facture']}.pdf"
     save_path = filedialog.asksaveasfilename(
         defaultextension=".pdf",
-        initialfile=default_filename,
+        initialfile=pdf_filename,
         filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")]
     )
     
     if save_path:
-        pdf = FPDF()
+        # Sauvegarder les données de la facture en JSON
+        try:
+            with open(json_filename, 'w') as json_file:
+                json.dump(data, json_file, indent=4)
+            print(f"Fichier JSON de la facture créé avec succès : {json_filename}")
+        except Exception as e:
+            messagebox.showerror("Erreur", f"Erreur lors de la création du fichier JSON: {e}")
+
+        pdf = PDF()
         pdf.add_page()
         pdf.set_font("Arial", size=12)
 
@@ -67,9 +92,10 @@ def create_invoice_from_data(data=None):
 
         # Totaux
         pdf.ln(10)
-        pdf.cell(0, 10, f"Montant HT: {data['Montant HT']}", ln=True)
-        pdf.cell(0, 10, f"Montant TVA: {data['Montant TVA']}", ln=True)
-        pdf.cell(0, 10, f"Total dû TTC: {data['Total dû TTC']}", ln=True)
+        pdf.set_font("Arial", 'B', size=12)
+        pdf.cell(0, 10, f"Montant HT (en €): {data['Montant HT']}", ln=True)
+        pdf.cell(0, 10, f"Montant TVA (en €): {data['Montant TVA']}", ln=True)
+        pdf.cell(0, 10, f"Total dû TTC (en €): {data['Total dû TTC']}", ln=True)
 
         # Notes
         pdf.ln(10)

@@ -8,21 +8,27 @@ import sqlite3
 # Obtenir le chemin absolu du répertoire courant
 current_dir = os.path.dirname(os.path.abspath(__file__))
 devis_dir = os.path.join(current_dir, 'devis')
+invoices_dir = os.path.join(current_dir, 'invoices')
 
-# Assurer que le répertoire pour stocker les devis existe
-if not os.path.exists(devis_dir):
-    os.makedirs(devis_dir)
+# Assurer que les répertoires pour stocker les devis et les factures existent
+os.makedirs(devis_dir, exist_ok=True)
+os.makedirs(invoices_dir, exist_ok=True)
 
-def save_quotation(data):
+def save_quotation(data, filename=None):
+    """Save a quotation to a JSON file."""
     try:
-        filename = os.path.join(devis_dir, f'quotation_{data["Numéro de devis"]}.json')
+        if filename is None:
+            filename = os.path.join(devis_dir, f'quotation_{data["Numéro de devis"]}.json')
         with open(filename, 'w') as f:
             json.dump(data, f, indent=4)
         print(f"Devis sauvegardé avec succès: {filename}")
+        return True
     except Exception as e:
         print(f"Erreur lors de la sauvegarde du devis: {e}")
+        return False
 
 def load_quotation(devis_number=None):
+    """Load a quotation from a JSON file."""
     try:
         if devis_number:
             filename = os.path.join(devis_dir, f'quotation_{devis_number}.json')
@@ -49,13 +55,12 @@ def load_quotation(devis_number=None):
         return None
 
 def generate_devis_number():
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    devis_dir = os.path.join(current_dir, 'devis')
-    
+    """Generate a new quotation number."""
     date_str = datetime.now().strftime("%Y-%m")
     base_number = f"DE{date_str}-"
     number = 1
 
+    # Vérifier les numéros de devis existants dans les fichiers
     if os.path.exists(devis_dir):
         files = os.listdir(devis_dir)
         existing_numbers = [int(f.split('-')[-1].split('.')[0]) for f in files if f.startswith(base_number)]
@@ -78,3 +83,27 @@ def generate_devis_number():
             number = max(number, max(db_numbers) + 1)
 
     return f"{base_number}{str(number).zfill(3)}"
+
+def generate_invoice_number():
+    """Generate a new invoice number."""
+    date_str = datetime.now().strftime("%Y%m")
+    base_number = f"FA{date_str}-"
+    number = 1
+
+    existing_numbers = []
+    for f in os.listdir(invoices_dir):
+        if f.startswith(base_number) and f.endswith('.json'):
+            try:
+                existing_numbers.append(int(f.split('-')[-1].split('.')[0]))
+            except ValueError:
+                pass
+
+    if existing_numbers:
+        number = max(existing_numbers) + 1
+
+    return f"{base_number}{str(number).zfill(3)}"
+
+# Test des fonctions de génération de numéro
+if __name__ == "__main__":
+    print(generate_devis_number())
+    print(generate_invoice_number())

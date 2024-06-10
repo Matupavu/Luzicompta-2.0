@@ -1,0 +1,46 @@
+{
+    "Num\u00e9ro de devis": "DE2024-06-035",
+    "Nom du client": "ATI INDUSTRIES",
+    "Nom du demandeur": "DOMINIQUE PROUTIERE",
+    "Adresse": "2 rue gustave eiffel",
+    "Code Postal": "45500",
+    "Ville": "GIEN",
+    "Date du devis": "09/06/2024",
+    "Nature de l'intervention": "Mmmmmmmmmmmm",
+    "Tableau": [
+        [
+            "Sdfghjkloiuhyg",
+            "U",
+            "1",
+            "58",
+            "58.00",
+            "20%",
+            "11.60",
+            "69.60"
+        ],
+        [
+            "Rtyujnbvg",
+            "U",
+            "1",
+            "54",
+            "54.00",
+            "20%",
+            "10.80",
+            "64.80"
+        ],
+        [
+            "",
+            "U",
+            "",
+            "",
+            "",
+            "20%",
+            "",
+            ""
+        ]
+    ],
+    "Montant HT": "112.00",
+    "Montant TVA": "22.40",
+    "Total d\u00fb TTC": "134.40",
+    "Notes": "Zerg"
+}
